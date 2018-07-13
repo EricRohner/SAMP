@@ -614,9 +614,3 @@ jspm_packages/
 .idea/misc.xml
 .idea/modules.xml
 .idea/workspace.xml
-samp/.gitignore
-samp/README.md
-samp/package.json
-samp/public/
-samp/src/
-samp/yarn.lock
