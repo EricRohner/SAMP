@@ -68,7 +68,7 @@ class Login extends Component {
                             { this.state.user ?
                                 <button onClick={this.logout}> Log Out</button>
                                 :
-                                <button onClick={this.login}> Log In </button>
+                                <button onClick={this.login}> Log In Sucker</button>
                             }
                         </form>
                     </section>
