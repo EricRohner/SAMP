@@ -11,7 +11,6 @@ class Login extends Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
     }
-
     logout() {
         auth.signOut()
             .then(() => {
@@ -28,7 +27,9 @@ class Login extends Component {
                     user
                 });
             });
-        window.location.href = "http://smileatmyprofile.com/Landing"
+        console.log("go to landing")
+        window.location.href = "http://localhost:3000/Landing"
+        // window.location.href = "https://samp.netlify.com/Landing"
     }
     render() {
         return (
