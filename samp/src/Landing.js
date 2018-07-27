@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import './App.css';
-import firebase, {auth, provider} from './firebase.js';
+import './Landing.css';
+import firebase, {auth} from './firebase.js';
 
 
 class Landing extends Component {
@@ -74,25 +74,30 @@ class Landing extends Component {
         return (
             <Fragment>
                 <div>
+
                     <form onSubmit={this.handleSubmit}>
+
                         <input type="text" name="username" placeholder="What's your name?"
                                onChange={this.handleChange}
                                value={this.state.username}/>
-                        <input type="text" name="currentItem" placeholder="What are you bringing?"
+
+                        <input type="text" name="currentItem" placeholder="Who are you?"
                                onChange={this.handleChange} value={this.state.currentItem}/>
-                        <button>Add Item</button>
+
+                        <button>Add Profile</button>
                     </form>
-                    <p>Hi!</p>
+
                     <button onClick={this.logout}> Log Out</button>
+
                 </div>
+
                 {console.log(this.state.items)}
                 {this.state.items.map((item) => {
 
                         return (
-                            <div key={item.id}>
-                                <h1>This is an item in the DB:</h1>
+                            <div key={item.id} className="profileDiv">
+                                <h2>{item.user}</h2>
                                 <p>{item.title}</p>
-                                <p>{item.user}</p>
                             </div>)
                     })}
 

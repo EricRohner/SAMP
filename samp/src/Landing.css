@@ -1,0 +1,16 @@
+.profileDiv {
+    margin: 10px 0vw 0vw 10vw;
+    width: 80vw;
+    border: 2px solid black;
+    background-color: white;
+}
+
+h2{
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+p{
+    font-size: 12px;
+    margin-left: 15px;
+}

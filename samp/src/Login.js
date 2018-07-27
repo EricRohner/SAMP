@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import firebase, {auth,provider} from './firebase.js';
+import {auth,provider} from './firebase.js';
 
 class Login extends Component {
     constructor () {
