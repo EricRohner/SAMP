@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import './App.css';
-import {auth,provider} from './firebase.js';
+import {auth, provider} from './firebase.js';
 
 class Login extends Component {
-    constructor () {
+
+    constructor() {
         super();
         this.state = {
             user: 'null'
@@ -11,6 +12,7 @@ class Login extends Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
     }
+
     logout() {
         auth.signOut()
             .then(() => {
@@ -19,44 +21,34 @@ class Login extends Component {
                 });
             });
     }
+
     login() {
         auth.signInWithPopup(provider)
             .then((result) => {
                 const user = result.user;
-                this.setState({
-                    user
-                });
+                this.setState({user});
+                console.log(user)
             });
         console.log("go to landing")
         window.location.href = "http://localhost:3000/Landing"
         // window.location.href = "https://samp.netlify.com/Landing"
     }
+
     render() {
         return (
-            <div className='app'>
-                <header>
-                    <div className='wrapper'>
-                        <h1>:) SMILE AT MY PROFILE :)</h1>
+            <Fragment>
 
-                    </div>
-                </header>
-                <div className='container'>
-                    <section className='add-item'>
-                        { this.state.user ?
-                            <button onClick={this.logout}> Log Out</button>
-                            :
-                            <button onClick={this.login}> Log In</button>
-                        }
-                    </section>
-                    <section className='display-item'>
-                        <div className='wrapper'>
-                            <ul>
-                            </ul>
-                        </div>
-                    </section>
-                </div>
-            </div>
+                <h1>:) SMILE AT MY PROFILE :)</h1>
+
+                {this.state.user ?
+                    <button onClick={this.logout}> Log Out</button>
+                    :
+                    <button onClick={this.login}> Log In</button>
+                }
+
+            </Fragment>
         );
     }
 }
+
 export default Login;
