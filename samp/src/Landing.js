@@ -5,9 +5,10 @@ import firebase, {auth} from './firebase.js';
 
 class Landing extends Component {
     constructor() {
+
         super();
         this.state = {
-            currentItem: '',
+            currentProfile: '',
             username: '',
             user: 'null',
             items: []
@@ -19,6 +20,7 @@ class Landing extends Component {
     }
 
     componentDidMount() {
+
         const itemsRef = firebase.database().ref('items');
         itemsRef.on('value', (snapshot) => {
                 let items = snapshot.val();
@@ -37,23 +39,25 @@ class Landing extends Component {
         )
     }
 
-
     handleChange(e) {
         this.setState({
+
             [e.target.name]: e.target.value
         });
     }
 
     handleSubmit(e) {
         e.preventDefault();
+
         const itemsRef = firebase.database().ref('items');
         const item = {
-            title: this.state.currentItem,
+            title: this.state.currentProfile,
             user: this.state.username
         }
+
         itemsRef.push(item);
         this.setState({
-            currentItem: '',
+            currentProfile: '',
             username: ''
         });
     }
@@ -69,7 +73,6 @@ class Landing extends Component {
         // window.location.href = "https://samp.netlify.com/"
     }
 
-
     render() {
         return (
             <Fragment>
@@ -81,8 +84,8 @@ class Landing extends Component {
                                onChange={this.handleChange}
                                value={this.state.username}/>
 
-                        <input type="text" name="currentItem" placeholder="Who are you?"
-                               onChange={this.handleChange} value={this.state.currentItem}/>
+                        <input type="text" name="currentProfile" placeholder="Who are you?"
+                               onChange={this.handleChange} value={this.state.currentProfile}/>
 
                         <button>Add Profile</button>
                     </form>
