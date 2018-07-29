@@ -22,14 +22,12 @@ class Login extends Component {
             });
     }
 
-    login() {
+    in() {
         auth.signInWithPopup(provider)
             .then((result) => {
                 const user = result.user;
                 this.setState({user});
-                console.log(user)
             });
-        console.log("go to landing")
         window.location.href = "http://localhost:3000/Landing"
         // window.location.href = "https://samp.netlify.com/Landing"
     }

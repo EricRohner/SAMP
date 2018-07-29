@@ -5,5 +5,14 @@
 
 - [x] Build database successfully
 - [x] Map data from Backend to Frontend successfully
+- [x] Save a comment to Database successfully
+
+### How to save a comment to Database (DB):
+- Built another component, named: "Profile", to seperate data from Landing (parent page).
+- Added textarea and state to the Profile.
+- Used "callback function" to let the Landing page manages the storage (data). (The parent does not know which child sends the data back => so that we have to tell the parent which child sent the data via child's ID)
+- Using the [update specific fields section](https://firebase.google.com/docs/database/web/read-and-write?authuser=1#update_specific_fields)
+- Then console.log and Firebase's DB to check if we successful or not. 
+
 
 Get available emoji and code [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
