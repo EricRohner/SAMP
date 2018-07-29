@@ -8,12 +8,13 @@ constructor(props){
     }
 }
 render(){
-    const { itemId, user, title, save } = this.props;
+    const { itemId, user, title, save, displayComment } = this.props;
     
     return (
         <div key={itemId} className="profileDiv">
             <h2>{user}</h2>
             <p>{title}</p>
+            <p>{displayComment}</p>
             <form>
                 <textarea onChange={(e) => { this.setState({ commentBox: e.target.value })}}/>
                 <button onClick={(e)=>{ 

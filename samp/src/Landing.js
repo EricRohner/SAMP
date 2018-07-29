@@ -30,7 +30,8 @@ class Landing extends Component {
                     newState.push({
                         id: item,
                         title: items[item].title,
-                        user: items[item].user
+                        user: items[item].user,
+                        comment: items[item].comment
                     });
                 }
                 this.setState({items: newState});
@@ -105,7 +106,11 @@ class Landing extends Component {
                 {this.state.items.map((item) => {
 
                         return (
-                            <Profile itemId={item.id} user={item.user} title={item.title} save={this.saveComment}/>
+                            <Profile itemId={item.id}
+                                    user={item.user}
+                                    title={item.title}
+                                    save={this.saveComment}
+                                    displayComment={item.comment}/>
                             )
                     })}
 
