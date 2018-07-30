@@ -6,13 +6,15 @@ import Landing from './Landing.js'
 
 
 
-export default () => (
+export default function SAMP(){ //DO NOT USE ANONYMOUS METHODS FOR COMPONENTS
+    //It makes it almost impossible to debug. Always use a name
+return (
+    <BrowserRouter>
+        <Switch>
+            <Route exact path ='/' component={Login}/>
+            <Route path ='/Landing' component={Landing}/>
+        </Switch>
+    </BrowserRouter>
 
-<BrowserRouter>
-    <Switch>
-        <Route exact path ='/' component={Login}/>
-        <Route path ='/Landing' component={Landing}/>
-    </Switch>
-</BrowserRouter>
-
-)
+    )
+}

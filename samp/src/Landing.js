@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './Landing.css';
 import firebase, {auth} from './firebase.js';
+import Profile from './Profile';
 
 
 class Landing extends Component {
@@ -29,14 +30,22 @@ class Landing extends Component {
                     newState.push({
                         id: item,
                         title: items[item].title,
-                        user: items[item].user
+                        user: items[item].user,
+                        comment: items[item].comment
                     });
                 }
                 this.setState({items: newState});
-                console.log(snapshot.val())
-                console.log(this.state.items)
             }
         )
+    }
+
+    saveComment(comment, itemId) {
+        console.log(comment, 'comment', itemId, 'Item');
+        const itemsRef = firebase.database().ref('items/' + itemId);
+        const updates = {};
+        updates['/comment'] = comment;
+
+        itemsRef.update(updates);
     }
 
     handleChange(e) {
@@ -94,14 +103,15 @@ class Landing extends Component {
 
                 </div>
 
-                {console.log(this.state.items)}
                 {this.state.items.map((item) => {
 
                         return (
-                            <div key={item.id} className="profileDiv">
-                                <h2>{item.user}</h2>
-                                <p>{item.title}</p>
-                            </div>)
+                            <Profile itemId={item.id}
+                                    user={item.user}
+                                    title={item.title}
+                                    save={this.saveComment}
+                                    displayComment={item.comment}/>
+                            )
                     })}
 
             </Fragment>
