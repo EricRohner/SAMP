@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './Landing.css';
+import icon from './Smile at My Profile icon.jpg'
 import firebase, {auth} from './firebase.js';
 import Profile from './Profile';
 
@@ -29,7 +30,7 @@ class Landing extends Component {
                 for (let item in items) {
                     newState.push({
                         id: item,
-                        title: items[item].title,
+                        profile: items[item].profile,
                         user: items[item].user,
                         comment: items[item].comment
                     });
@@ -60,7 +61,7 @@ class Landing extends Component {
 
         const itemsRef = firebase.database().ref('items');
         const item = {
-            title: this.state.currentProfile,
+            profile: this.state.currentProfile,
             user: this.state.username
         }
 
@@ -85,8 +86,12 @@ class Landing extends Component {
     render() {
         return (
             <Fragment>
-                <div>
+                <body>
 
+                <div className="inputboxstyles">
+                    <div>
+                    <img className="logoicon" src={icon} alt=""/>
+                    </div>
                     <form onSubmit={this.handleSubmit}>
 
                         <input type="text" name="username" placeholder="What's your name?"
@@ -96,10 +101,10 @@ class Landing extends Component {
                         <input type="text" name="currentProfile" placeholder="Who are you?"
                                onChange={this.handleChange} value={this.state.currentProfile}/>
 
-                        <button>Add Profile</button>
+                        <button className="buttoncolor">Add Profile</button>
                     </form>
 
-                    <button onClick={this.logout}> Log Out</button>
+                    <button className="btn btn-primary buttoncolor" onClick={this.logout}> Log Out</button>
 
                 </div>
 
@@ -108,12 +113,12 @@ class Landing extends Component {
                         return (
                             <Profile itemId={item.id}
                                     user={item.user}
-                                    title={item.title}
+                                    profile={item.profile}
                                     save={this.saveComment}
                                     displayComment={item.comment}/>
                             )
                     })}
-
+                </body>
             </Fragment>
         );
     }
