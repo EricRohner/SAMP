@@ -5,12 +5,88 @@
     background-color: white;
 }
 
+button {
+    margin: 5px;
+    box-shadow: 1px 1px .5px #aaaaaa;
+    border-radius: 2px;
+}
+
 h2{
+    text-align: center;
     font-size: 18px;
-    margin-left: 15px;
+    margin: 5px;
 }
 
 p{
     font-size: 12px;
     margin-left: 15px;
+}
+
+input {
+    margin: 3px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 5px;
+    box-sizing: border-box;
+}
+
+.inputboxstyles {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.commentboxstyles {
+    display: flex;
+    justify-content: center;
+}
+
+.logoicon {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+
+.buttoncolor {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.buttoncolor:hover {
+    background-color: deepskyblue;
+    border-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: white;
+}
+
+.commentbutton {
+    margin: 5px;
+    height: 4vh;
+}
+
+.commentbutton:hover {
+    background-color: deepskyblue;
+    border-color: grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: white;
+}
+
+.commentcontainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    background: #d3d3d3;
+    box-shadow: 1px 1px .5px #aaaaaa;
+}
+
+.commentdisplaybox {
+    background: white;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 1px #aaaaaa;
+    border-radius: 10px 10px 0px 10px;
 }

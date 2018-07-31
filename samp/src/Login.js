@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './App.css';
+import logo from './Smile at My Profile.jpg'
 import {auth, provider} from './firebase.js';
 
 class Login extends Component {
@@ -22,7 +23,7 @@ class Login extends Component {
             });
     }
 
-    in() {
+    login() {
         auth.signInWithPopup(provider)
             .then((result) => {
                 const user = result.user;
@@ -36,14 +37,16 @@ class Login extends Component {
         return (
             <Fragment>
 
-                <h1>:) SMILE AT MY PROFILE :)</h1>
+                <section>
+                    <img src={logo} alt="logo" />
 
                 {this.state.user ?
-                    <button onClick={this.logout}> Log Out</button>
+                    <button type="button" className="btn btn-primary btn-lg btn-block buttoncolor" onClick={this.logout}> Log Out</button>
                     :
-                    <button onClick={this.login}> Log In</button>
+                    <button type="button" className="btn btn-primary btn-lg btn-block buttoncolor" onClick={this.login}> Log In</button>
                 }
 
+                </section>
             </Fragment>
         );
     }
