@@ -6,6 +6,7 @@
 - [x] Build database successfully
 - [x] Map data from Backend to Frontend successfully
 - [x] Save a comment to Database successfully
+- [x] Delete a comment to Database successfully
 
 ### How to save a comment to Database (DB):
 - Built another component, named: "Profile", to seperate data from Landing (parent page).
@@ -14,5 +15,12 @@
 - Using the [update specific fields section](https://firebase.google.com/docs/database/web/read-and-write?authuser=1#update_specific_fields)
 - Then console.log and Firebase's DB to check if we successful or not. 
 
+### How to delete a comment to Database (DB):
+```
+   removeComment(itemId) {
+        const itemRef = firebase.database().ref(`/items/${itemId}/comment`);
+        itemRef.remove();
+    }
+```
 
 Get available emoji and code [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
