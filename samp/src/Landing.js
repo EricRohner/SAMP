@@ -40,14 +40,7 @@ class Landing extends Component {
         )
     }
 
-    saveComment(comment, itemId) {
-        console.log(comment, 'comment', itemId, 'Item');
-        const itemsRef = firebase.database().ref('items/' + itemId);
-        const updates = {};
-        updates['/comment'] = comment;
 
-        itemsRef.update(updates);
-    }
 
     handleChange(e) {
         this.setState({
@@ -114,8 +107,8 @@ class Landing extends Component {
                             <Profile itemId={item.id}
                                     user={item.user}
                                     profile={item.profile}
-                                    save={this.saveComment}
-                                    displayComment={item.comment}/>
+                                    displayComment= {item.comments || []}
+                                    />
                             )
                     })}
                 </body>
